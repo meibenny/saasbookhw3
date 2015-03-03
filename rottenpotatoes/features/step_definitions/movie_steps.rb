@@ -43,5 +43,14 @@ end
 
 Then /I should see all the movies/ do
   # Make sure that all the movies in the app are visible in the table
-  flunk "Unimplemented"
+  Movie.all.each_with_index{
+    |movie, index|
+      name = movie[:title]
+      if(!index)
+        step( %Q{I should see "#{name}"})
+      else
+        step( %Q{I should see "#{name}"})
+      end
+  }
 end
+
