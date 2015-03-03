@@ -34,9 +34,9 @@ When /I (un)?check the following ratings: (.*)/ do |uncheck, rating_list|
   rating_list.split(%r{\s*,\s*}).each_with_index{
     |name, index|
       if(!index)
-        When %Q{I #{uncheck}check "ratings[#{name}]"}
+        step( %Q{I #{uncheck}check "ratings[#{name}]"})
       else
-        And %Q{I #{uncheck}check "ratings[#{name}]"}
+        step( %Q{I #{uncheck}check "ratings[#{name}]"})
       end
     }
 end
