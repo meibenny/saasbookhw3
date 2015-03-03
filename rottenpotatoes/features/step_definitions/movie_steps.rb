@@ -17,7 +17,8 @@ Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   assert false, "Unimplemented"
   x = page.body.split(e1)
   assert x.length == 3
-
+  x = x[2].split(e2)
+  assert x.length == 3
 end
 
 # Make it easier to express checking or unchecking several boxes at once
